@@ -1,9 +1,9 @@
 .testWrapper{
-    margin: 10px 0;
-
     .question{
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         font-weight: 600;
         font-size: 16px;
+        max-width: 600px;
+        width: 100%;
     }
 }

@@ -16,11 +16,11 @@ export default (env: BuildEnv) => {
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         build: path.resolve(__dirname, 'build'),
-        buildAssets: path.resolve(__dirname, 'build', 'assets'),
+        // buildAssets: path.resolve(__dirname, 'build', 'assets'),
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
         // favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
-        assets: path.resolve(__dirname, 'src', 'shared', 'assets'),
+        // assets: path.resolve(__dirname, 'src', 'shared', 'assets'),
     };
 
     return buildWebpackConfig({

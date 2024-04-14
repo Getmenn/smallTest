@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
+import { useActions } from '@/shared/hooks/useAction/useAction';
+import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { OneSelect } from '@/shared/ui';
 
+import { answersSelector } from '../../model/selectors/selectors';
+import { testActions } from '../../model/slice/test';
 import s from './SimpleSelect.module.scss';
 
 interface IProps {
@@ -10,12 +14,28 @@ interface IProps {
 }
 
 export const SimpleSelect = ({ items, id }: IProps) => {
-    const [activeSelect, setActiveSelect] = useState<number | null>(null);
+    const [activeSelect, setActiveSelect] = useState<string>('');
+    const { setActiveAnswer } = useActions(testActions);
 
-    const handleAddActiveSelect = (num: number) => {
-        activeSelect === num
-            ? setActiveSelect(null)
-            : setActiveSelect(num);
+    const answers = useAppSelector(answersSelector);
+
+    useEffect(() => {
+        answers.forEach((el) => {
+            if (el.id === id && typeof el.answer === 'string') {
+                setActiveSelect(el.answer);
+            }
+        });
+        return () => setActiveSelect('');
+    }, [answers, id, items]);
+
+    const handleAddActiveSelect = (num: string) => {
+        const selected = activeSelect === num
+            ? ''
+            : num;
+
+        setActiveSelect(selected);
+        setActiveAnswer(selected);
+        localStorage.setItem('activeAnswer', JSON.stringify(selected));
     };
 
     return (
@@ -25,8 +45,8 @@ export const SimpleSelect = ({ items, id }: IProps) => {
                     <OneSelect
                         key={i}
                         text={el}
-                        id={i}
-                        active={activeSelect === i}
+                        id={String(i)}
+                        active={activeSelect === String(i)}
                         setActiveSelect={handleAddActiveSelect}
                     />
                 ))

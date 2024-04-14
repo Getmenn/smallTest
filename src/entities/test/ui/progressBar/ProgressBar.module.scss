@@ -1,0 +1,21 @@
+.progressBar{
+    display: flex;
+    gap: 10px;
+
+    .marker{
+        width: 100%;
+        height: 10px;
+        background-color: var(--gray);
+        cursor: pointer;
+        border-radius: 3px;
+    
+        &.ready{
+            background-color: var(--green);
+        }
+
+        &.active{
+            background-color:var(--yellow);
+        }
+    }
+}
+

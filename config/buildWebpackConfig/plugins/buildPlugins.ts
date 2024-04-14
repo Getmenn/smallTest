@@ -27,12 +27,12 @@ export function buildPlugins(options: BuildOptions): WebpackPluginInstance[] {
             // __WS__: JSON.stringify(wsUrl),
             __PROJECT__: JSON.stringify(project),
         }),
-        new CopyPlugin({
-            patterns: [
-                // { from: paths.favicon, to: paths.build },
-                { from: paths.assets, to: paths.buildAssets },
-            ],
-        }),
+        // new CopyPlugin({
+        //     patterns: [
+        //         // { from: paths.favicon, to: paths.build },
+        //         { from: paths.assets, to: paths.buildAssets },
+        //     ],
+        // }),
         new HotModuleReplacementPlugin(),
         new ForkTsCheckerWebpackPlugin({
             typescript: {

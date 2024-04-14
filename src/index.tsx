@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 
 import { StoreProvider } from '@/app/providers/reduxStore';
 
+import { LocalStorageProvider } from './app/providers/localStorage';
 import MainPage from './page/content/main';
 
 const container = document.getElementById('root');
@@ -14,7 +15,9 @@ if (!container) {
 
 ReactDOM.createRoot(container).render(
     <StoreProvider>
-        <MainPage />
+        <LocalStorageProvider>
+            <MainPage />
+        </LocalStorageProvider>
     </StoreProvider>
     ,
 );

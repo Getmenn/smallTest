@@ -1,34 +1,44 @@
-export type testTypes = 'multiSelect' | 'simpleSelect' | 'bigText' | 'shortText'
-
-export interface ITestItem{
-    id: number,
-    title: string,
-    type: testTypes,
-    options?: string[],
-}
+import { ITestItem } from '../model/types/types';
 
 export const dataTest: ITestItem[] = [
     {
         id: 1,
-        title: 'example',
+        title: 'Как называется основная единица информации в компьютере?',
         type: 'shortText',
     },
     {
         id: 2,
-        title: 'example',
-        type: 'multiSelect',
-        options: ['first', 'second', 'third', 'four'],
+        title: 'Сколько часов стоит уделить подготовке к ЕГЭ?',
+        type: 'simpleSelect',
+        options: ['100 часов', '200 часов', '300 часов', 'Зависит от уровня подготовки'],
     },
     {
         id: 3,
-        title: 'example',
-        type: 'simpleSelect',
-        options: ['first', 'second', 'third', 'four'],
+        title: 'Какие темы являются ключевыми на ЕГЭ по информатике?',
+        type: 'multiSelect',
+        options: ['Алгоритмы и структуры данных', 'Программирование', 'Основы компьютерных сетей', 'Безопасность информации'],
     },
     {
         id: 4,
-        title: 'example',
+        title: 'Какие операторы управления потоком данных встречаются на ЕГЭ по информатике?',
+        type: 'multiSelect',
+        options: ['if-else', 'switch-case', 'for', 'while'],
+    },
+    {
+        id: 5,
+        title: "Что такое 'Большой O' в контексте алгоритмов?",
+        type: 'bigText',
+    },
+    {
+        id: 6,
+        title: 'Как называется язык разметки, используемый для создания веб-страниц?',
         type: 'shortText',
+    },
+    {
+        id: 7,
+        title: 'Какие алгоритмы сортировки юывают?',
+        type: 'multiSelect',
+        options: ['Сортировка пузырьком', 'Сортировка вставками', 'Сортировка выбором', 'Быстрая сортировка'],
     },
 
 ];

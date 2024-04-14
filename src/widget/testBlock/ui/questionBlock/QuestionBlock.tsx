@@ -1,4 +1,4 @@
-import { ITestItem, MultiSelect, ShortText, SimpleSelect, testTypes } from '@/entities/test';
+import { BigText, ITestItem, MultiSelect, ShortText, SimpleSelect, testTypes } from '@/entities/test';
 
 import s from './QuestionBlock.module.scss';
 
@@ -15,9 +15,9 @@ interface IGetTypeBlock {
 const getTypeBlock = ({ type, id, items }: IGetTypeBlock) => {
     switch (type) {
         case 'bigText':
-            return <ShortText />;
+            return <BigText id={id} />;
         case 'shortText':
-            return <ShortText />;
+            return <ShortText id={id} />;
         case 'simpleSelect':
             return <SimpleSelect id={id} items={items || []} />;
         case 'multiSelect':
@@ -32,7 +32,6 @@ export const QuestionBlock = ({ item }: IProps) => {
         <div className={s.testWrapper}>
             <h3 className={s.question}>{item.title}</h3>
             {getTypeBlock({ type: item.type, id: item.id, items: item.options })}
-            {/* <button type="button">Ответить</button> */}
         </div>
     );
 };

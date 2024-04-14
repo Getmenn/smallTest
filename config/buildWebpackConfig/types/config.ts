@@ -3,11 +3,11 @@ export type BuildMode = 'development' | 'production';
 export type BuildPaths = {
 	entry: string;
 	build: string;
-	buildAssets: string;
+	// buildAssets: string;
 	html: string;
 	src: string;
 	// favicon?: string;
-	assets: string;
+	// assets: string;
 };
 
 export type BuildOptions = {
