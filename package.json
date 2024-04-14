@@ -1,6 +1,7 @@
 {
   "name": "project",
   "version": "1.0.0",
+  "homepage": "https://getmenn.github.io/smallTest/",
   "description": "",
   "main": "index.ts",
   "scripts": {
@@ -10,7 +11,9 @@
     "build:dev": "webpack --env mode=development",
     "lint:ts": "npx eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
-    "test:unit": "npx jest --config ./config/jest/jest.config.ts"
+    "test:unit": "npx jest --config ./config/jest/jest.config.ts",
+    "predeploy": "npm run build:prod",
+    "deploy": "gh-pages -d build"
   },
   "author": "Artem",
   "license": "ISC",
@@ -39,6 +42,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
+    "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.5.1",
     "identity-obj-proxy": "^3.0.0",
     "mini-css-extract-plugin": "^2.7.5",
