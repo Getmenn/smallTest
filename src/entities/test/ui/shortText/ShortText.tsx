@@ -1,9 +1,9 @@
-import { ChangeEvent, memo, useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { useActions } from '@/shared/hooks/useAction/useAction';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import { useDebounce } from '@/shared/hooks/useDebounce/useDebounce';
-import { Input } from '@/shared/ui/input/Input';
+import { Input } from '@/shared/ui';
 
 import { answersSelector } from '../../model/selectors/selectors';
 import { testActions } from '../../model/slice/test';
