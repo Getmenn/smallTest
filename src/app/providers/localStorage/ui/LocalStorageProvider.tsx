@@ -31,7 +31,12 @@ export const LocalStorageProvider = ({
             answersNew && setAllAnswers(JSON.parse(answersNew));
             activeTest && setActiveTest(JSON.parse(activeTest) || 1);
             activeAnswer && setActiveAnswer(JSON.parse(activeAnswer) || '');
-            timer && setTimer(JSON.parse(timer) || 900000);
+
+            if (!timer) {
+                setTestStatus('finally');
+            } else {
+                setTimer(JSON.parse(timer));
+            }
         }
     }, []);
 

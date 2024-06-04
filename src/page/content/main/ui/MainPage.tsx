@@ -10,10 +10,10 @@ export const MainPage = () => {
     const testStatus = useAppSelector(testStatusSelector);
 
     return (
-        <div className={s.mainPage}>
+        <main className={s.mainPage}>
             {testStatus === 'pending' && <StartTest />}
             {testStatus === 'progress' && <TestBlock />}
             {testStatus === 'finally' && <EndTest />}
-        </div>
+        </main>
     );
 };

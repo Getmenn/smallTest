@@ -2,8 +2,7 @@ import { useCallback, useState } from 'react';
 
 import { testActions } from '@/entities/test';
 import { useActions } from '@/shared/hooks/useAction/useAction';
-import { Button } from '@/shared/ui';
-import { Input } from '@/shared/ui/input/Input';
+import { Button, Input } from '@/shared/ui';
 
 import s from './StartTest.module.scss';
 
@@ -24,12 +23,16 @@ export const StartTest = () => {
     }, []);
 
     const handleStartTest = useCallback(() => {
-        setTestStatus('progress');
-        localStorage.setItem('testStatus', 'progress');
-    }, []);
+        if (+time <= 0 && checked) {
+            setTestStatus('finally');
+        } else {
+            setTestStatus('progress');
+            localStorage.setItem('testStatus', 'progress');
+        }
+    }, [time, checked]);
 
     return (
-        <div className={s.startTest}>
+        <section className={s.startTest}>
             <div className={s.checkboxWrapper}>
                 <input
                     type="checkbox"
@@ -49,6 +52,6 @@ export const StartTest = () => {
                 disabled={!checked}
             />
             <Button onClick={handleStartTest}>Начать тест</Button>
-        </div>
+        </section>
     );
 };
